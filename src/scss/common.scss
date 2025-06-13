@@ -1,0 +1,35 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+.title {
+	font-weight: 700;
+	@include adaptiveValue('font-size', 40, 22);
+	line-height: 150%;
+	&:not(:last-child) {
+		@include adaptiveValue('margin-bottom', 35, 20);
+	}
+
+	&--s {
+		@include adaptiveValue('font-size', 25, 20);
+		&:not(:last-child) {
+			@include adaptiveValue('margin-bottom', 25, 15);
+		}
+	}
+}
+
+
+
+::-webkit-scrollbar {
+  width: toRem(15);
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f9f9f9;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $lightBlueColor;
+  border-radius: 9px;
+  border: 3px solid #f9f9f9;
+  transition: all 0.3s;
+}

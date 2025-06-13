@@ -1,0 +1,91 @@
+.tabs {
+	display: grid;
+	align-items: start;
+	grid-template-columns: 35% 1fr;
+	@include adaptiveValue('column-gap', 45, 20, 0, $containerWidth, 768.98);
+	background-color: $opBlueColor1;
+	padding: 20px 15px;
+	border-radius: toRem(23);
+	@media (max-width:$tablet){
+		margin: 0 -15px; 
+		border-radius: 0;
+	}
+	@media (max-width:$mobile){
+		 grid-template-columns: 1fr;
+		 row-gap: toRem(30);
+		 
+	}
+
+	// .tabs__navigation
+	&__navigation {
+		display: grid;
+		align-items: start;
+		gap: 10px;
+		border-radius: toRem(5);
+	}
+	// .tabs__title
+	&__title {
+		position: relative;
+		font-weight: 700;
+		text-align: left;
+		padding: toRem(20) toRem(80) toRem(20) toRem(20);
+		border-radius: 15px;
+		background: $opBlueColor1;
+		border: 1px solid $opBlueColor2;
+		transition: border 0.3s;
+		&.icon-s-arrow {
+			&::before {
+				background-color: $lightBlueColor2;
+				padding: toRem(10) toRem(17);
+				top: 50%;
+				transform: translateY(-50%);
+				position: absolute;
+				right: 20px;
+				font-size: toRem(8);
+				border-radius: toRem(10);
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				border: 1px solid $lightBlueColor;
+			}
+		}
+		&._tab-active {
+			background: linear-gradient(
+				359deg,
+				rgba(94, 152, 240, 0.21) 7.05%,
+				rgba(28, 46, 108, 0.6) 100%
+			);
+			&.icon-s-arrow {
+				&::before {
+					background-color: $mainColor;
+					padding: toRem(10) toRem(17);
+					color: black;
+					top: 50%;
+					transform: translateY(-50%);
+					position: absolute;
+					right: 20px;
+					font-size: toRem(8);
+					border-radius: toRem(10);
+				}
+			}
+		}
+	}
+	// .tabs__content
+	&__content {
+		border-radius: toRem(10);
+		background-color: $opBlueColor3;
+		@include adaptiveValue("padding-top", 20, 15, 0, $containerWidth, 767.98);
+		@include adaptiveValue("padding-bottom", 20, 15, 0, $containerWidth, 767.98);
+		@include adaptiveValue("padding-left", 20, 15, 0, $containerWidth, 767.98);
+		@include adaptiveValue("padding-right", 20, 15, 0, $containerWidth, 767.98);
+		@media (max-width:$mobileSmall){
+			 margin: 0 -15px; 
+			 border-radius: toRem(0);
+		}
+	
+	}
+	// .tabs__body
+	&__body {
+	}
+}

@@ -1,0 +1,93 @@
+// Базові стилі спойлерів
+// Сніппет (HTML): spoller
+
+// Блок зі спойлерами
+.spollers {
+	display: grid;
+	gap: 10px;
+}
+// Спойлер
+.spollers__item {
+	background-color: $lightBlueColor;
+	border-radius: toRem(10);
+}
+// Заголовок спойлера
+.spollers__title {
+	@include adaptiveValue("font-size", 20, 18);
+	font-weight: 700;
+	background-color: $lightBlueColor;
+	border-radius: toRem(10);
+	line-height: 120%;
+	width: 100%;
+	cursor: default;
+	text-align: left;
+	padding: toRem(15) toRem(40) toRem(15) toRem(15);
+	position: relative;
+	list-style: none;
+	&::marker,
+	&::-webkit-details-marker {
+		display: none;
+	}
+	._spoller-init & {
+		position: relative;
+		cursor: pointer;
+		
+		&::after {
+			content: '';
+			position: absolute;
+			right: 10px;
+			top: toRem(15);
+			height: 23px;
+			width: 23px;
+			transition: transform 0.5s ease 0s;
+			background: url('@img/icons/open-icon.svg') 0 0 / contain no-repeat;
+			background-repeat: 50%;
+		}
+
+	}
+
+	&._spoller-active {
+		&::after {
+			transform:  rotate(45deg); /* Формуємо одну лінію хрестика */
+		}
+	
+
+		/*
+		._spoller-init & {
+			position: relative;
+			width: 100%;
+			text-align: left;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				right: 0;
+				top: toRem(12);
+				height: toRem(1);
+				transition: all 0.3s ease 0s;
+				width: toRem(10);
+				background-color: #000;
+			}
+			&::before {
+				transform: rotate(40deg);
+				right: toRem(7);
+			}
+			&::after {
+				transform: rotate(-40deg);
+			}
+		}
+		&._spoller-active {
+			&::before {
+				transform: rotate(-40deg);
+			}
+			&::after {
+				transform: rotate(40deg);
+			}
+		}
+		*/
+	}
+}
+// Контент спойлера
+.spollers__body {
+	padding: toRem(5) toRem(15) toRem(15) toRem(15);
+}
