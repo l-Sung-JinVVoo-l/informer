@@ -2,18 +2,17 @@
 	display: grid;
 	align-items: start;
 	grid-template-columns: 35% 1fr;
-	@include adaptiveValue('column-gap', 45, 20, 0, $containerWidth, 768.98);
+	@include adaptiveValue("column-gap", 45, 20, 0, $containerWidth, 768.98);
 	background-color: $opBlueColor1;
 	padding: 20px 15px;
 	border-radius: toRem(23);
-	@media (max-width:$tablet){
-		margin: 0 -15px; 
+	@media (max-width: $tablet) {
+		margin: 0 -15px;
 		border-radius: 0;
 	}
-	@media (max-width:$mobile){
-		 grid-template-columns: 1fr;
-		 row-gap: toRem(30);
-		 
+	@media (max-width: $mobile) {
+		grid-template-columns: 1fr;
+		row-gap: toRem(30);
 	}
 
 	// .tabs__navigation
@@ -51,11 +50,7 @@
 			}
 		}
 		&._tab-active {
-			background: linear-gradient(
-				359deg,
-				rgba(94, 152, 240, 0.21) 7.05%,
-				rgba(28, 46, 108, 0.6) 100%
-			);
+			background: linear-gradient(359deg, rgba(94, 152, 240, 0.21) 7.05%, rgba(28, 46, 108, 0.6) 100%);
 			&.icon-s-arrow {
 				&::before {
 					background-color: $mainColor;
@@ -79,11 +74,10 @@
 		@include adaptiveValue("padding-bottom", 20, 15, 0, $containerWidth, 767.98);
 		@include adaptiveValue("padding-left", 20, 15, 0, $containerWidth, 767.98);
 		@include adaptiveValue("padding-right", 20, 15, 0, $containerWidth, 767.98);
-		@media (max-width:$mobileSmall){
-			 margin: 0 -15px; 
-			 border-radius: toRem(0);
+		@media (max-width: $mobileSmall) {
+			margin: 0 -15px;
+			border-radius: toRem(0);
 		}
-	
 	}
 	// .tabs__body
 	&__body {
